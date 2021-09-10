@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "903ab37b-f66c-4f1a-b6f2-b691243efa15",
+		"name": "Concertacion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6c11b289-7443-44c6-baa1-caf19516cce5",
+						"exec": [
+							"let resp = pm.response.json();",
+							"if(resp.usuario){",
+							"    pm.environment.set(\"token\",resp.token);",
+							"\tconsole.log('se ha actualizado el token');",
+							"}else{",
+							"\tconsole.log('no se ha actualizado el token');",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"usuario\": \"admin\",\n  \"password\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/seguridad/autenticar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"seguridad",
+						"autenticar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login proponente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a1f0831-9da8-45b4-819c-ce859c2aa879",
+						"exec": [
+							"let resp = pm.response.json();",
+							"if(resp.usuario){",
+							"    pm.environment.set(\"token\",resp.token);",
+							"\tconsole.log('se ha actualizado el token');",
+							"}else{",
+							"\tconsole.log('no se ha actualizado el token');",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"usuario\": \"miltonsofjava\",\n  \"password\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/seguridad/autenticar",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"seguridad",
+						"autenticar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear usuario",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f73df503-fbd3-4482-b303-72d82716e052",
+						"exec": [
+							"let resp = pm.response.json();",
+							"if(resp.usuario){",
+							"    pm.environment.set(\"token\",resp.token);",
+							"\tconsole.log('se ha actualizado el token');",
+							"}else{",
+							"\tconsole.log('no se ha actualizado el token');",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"tipIdEntidad\": 1,\n  \"tipoEntidad\": 2,\n  \"nit\": \"1123456789\",\n  \"correo\": \"miltonsofjava@hotmail.com\",\n  \"contrasena\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/seguridad/usuario",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"seguridad",
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Departamentos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5001/api/parametria/departamentos",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"parametria",
+						"departamentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Menu",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5001/api/parametria/menu",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"parametria",
+						"menu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Municipios",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5001/api/parametria/departamentos/20/municipios",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"parametria",
+						"departamentos",
+						"20",
+						"municipios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vigencias",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5001/api/parametria/vigencia",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"parametria",
+						"vigencia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tipos entidad",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:5001/api/parametria/tiposentidad",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"parametria",
+						"tiposentidad"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,533 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Concertacion.API</name>
+    </assembly>
+    <members>
+        <member name="T:Concertacion.API.Controllers.ControllerBaseAPI">
+            <summary>
+            Clase abstracta para los controladores que manejen autenticación por token
+            </summary>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ControllerBaseAPI.GetClaim(System.String)">
+            <summary>
+            Obtiene el valor de la Claim por su key
+            </summary>
+            <param name="key">Llave a obtener</param>
+            <returns></returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ControllerBaseAPI.GetUserId">
+            <summary>
+            Obtener el Id del usuario autenticado
+            </summary>
+            <returns>Id User</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ControllerBaseAPI.GetUserName">
+            <summary>
+            Obtener el Id del usuario autenticado
+            </summary>
+            <returns>Id User</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ControllerBaseAPI.GetProponenteId">
+            <summary>
+            Obtener proponente asociado al usuario
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ControllerBaseAPI.HandleError(System.String,System.String)">
+            <summary>
+            Maneja la respuesta de error causado por un error del sistema
+            </summary>
+            <param name="error">Mensaje de error</param>
+            <param name="errorCode">Código del error</param>
+            <returns>Respuesta en json</returns>
+        </member>
+        <member name="T:Concertacion.API.Controllers.EnviarController">
+            <summary>
+            Controller encargado de realizar el envío del proyecto al personal evaluador del MC
+            </summary>
+        </member>
+        <member name="M:Concertacion.API.Controllers.EnviarController.#ctor(MinCultura.Domain.Service.Interface.IEnvioProyectoService)">
+            <summary>
+            Constructor de la clase
+            </summary>
+            <param name="envioProyectoService"></param>
+        </member>
+        <member name="M:Concertacion.API.Controllers.EnviarController.Enviar(System.Nullable{System.Decimal})">
+            <summary>
+            Método encargado de validar que toda la información del proyecto este correctamente diligenciada.
+            Si toda la información existe, realiza el radicado del proyecto y cambia el estado del mismo,
+            en caso contrario retorna los errores encontrados.
+            </summary>
+            <param name="id">Id del proyecto</param>
+            <returns>Resultado de la operación</returns>
+        </member>
+        <member name="T:Concertacion.API.Controllers.EvaluacionController">
+            <summary>
+            Controller encargado de realizar la evaluación proyecto
+            </summary>
+        </member>
+        <member name="M:Concertacion.API.Controllers.EvaluacionController.#ctor(MinCultura.Domain.Service.Interface.IEvaluacionService)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="evaluacionService"></param>
+        </member>
+        <member name="M:Concertacion.API.Controllers.EvaluacionController.ProyectoByEstado(System.String)">
+            <summary>
+            Consultar proyectos por estado
+            </summary>
+            <param name="estado">Estado del proyecto</param>
+            <returns>Proponente</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.EvaluacionController.ProyectoByEvaluacionRequisitos(System.Decimal)">
+            <summary>
+            Consultar evaluacion de requisitos por proyecto
+            </summary>
+            <param name="proId">Id del proyecto</param>
+            <returns>Lista de requisitos evaluados</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.EvaluacionController.Proyecto(System.Decimal)">
+            <summary>
+            Consultar proyecto
+            </summary>
+            <param name="proId">Id del proyecto</param>
+            <returns>proyecto</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.EvaluacionController.EvaluacionForma(System.Collections.Generic.List{MinCultura.Domain.Common.DTO.EvaluacionRequisitosDto})">
+            <summary>
+            Método para actualizar la información de los requisitos del proyecto.
+            </summary>
+            <param name="evaluacionForma">Lista de evaluación de requisitos</param>
+            <returns>Respuesta de la actualización</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.EvaluacionController.EnvioCorreoEvaluacion(MinCultura.Domain.Common.DTO.ProyectoDto)">
+            <summary>
+            Método que permite enviar correo especificando los documentos que no cumplen .
+            </summary>
+            <param name="proyecto">proyecto</param>
+            <returns>Respuesta del envío del correo</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.EvaluacionController.CambiarEstadoProyecto(System.Decimal)">
+            <summary>
+            Método que permite cambiar estado del proyecto
+            </summary>
+            <param name="proId"></param>
+            <returns>Retorna true o false </returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.EvaluacionController.GetUserName">
+            <summary>
+            Obtener el Id del usuario autenticado
+            </summary>
+            <returns>Id User</returns>
+        </member>
+        <member name="T:Concertacion.API.Controllers.FormulariosController">
+            <summary>
+            Controller encargado administrar y gestionar listas del sistema y tablas paramétricas
+            </summary>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.#ctor(MinCultura.Domain.Service.Interface.IFormulariosServicice)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="formulariosService"></param>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.FormularioA(MinCultura.Domain.Common.DTO.FormularioADto)">
+            <summary>
+            Método para actualizar la información del proponente, recibe la información del formulario A
+            </summary>
+            <param name="formularioA">Información del proponente y del proyecto</param>
+            <returns>Respuesta Proponente actualizado o no</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.Proponente(MinCultura.Domain.Common.DTO.ProponenteDto)">
+            <summary>
+            Método para actualizar la información del proponente, recibe la información del formulario A
+            </summary>
+            <param name="proponente">Información del proponente y del proyecto</param>
+            <returns>Respuesta Proponente actualizado o no</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.FormularioB(MinCultura.Domain.Common.DTO.FormularioBDto)">
+            <summary>
+            Método para actualizar la información del proyecto, recibe la información del formulario B
+            </summary>
+            <param name="formularioB">Información del proponente y del proyecto</param>
+            <returns>Respuesta Proponente actualizado o no</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.Proyecto(MinCultura.Domain.Common.DTO.ProyectoDto)">
+            <summary>
+            Método para actualizar la información del proyecto, recibe la información del formulario B
+            </summary>
+            <param name="proyecto">Información del proponente y del proyecto</param>
+            <returns>Respuesta Proponente actualizado o no</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.Proponentes(System.Decimal)">
+            <summary>
+            Consultar Proponente por Id
+            </summary>
+            <param name="id">Id del proponente</param>
+            <returns>Proponente</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.ProyectosByProponente(System.Decimal)">
+            <summary>
+            Consultar Proyectos por Proponente
+            </summary>
+            <param name="id">Id del proponente</param>
+            <returns>Proyectos asociados al proponente</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.ProyectoByProponente(System.Decimal)">
+            <summary>
+            Consultar Proyectos por Proponente
+            </summary>
+            <param name="id">Id del proponente</param>
+            <returns>Proyectos asociados al proponente</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.ProyectosById(System.Decimal)">
+            <summary>
+            Consultar Proyectos por Id
+            </summary>
+            <param name="id">Id del proyecto</param>
+            <returns>Proyecto asociado al id</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.TemasByProyecto(System.Decimal)">
+            <summary>
+            Consultar temas por proyecto
+            </summary>
+            <param name="id">Id del proyecto</param>
+            <returns>Temas asociados al proyecto</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.ComponenteByProyecto(System.Decimal)">
+            <summary>
+            Consultar Componente por proyecto
+            </summary>
+            <param name="id">Id del proyecto</param>
+            <returns>Componente del proyecto</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.Cronograma(System.Decimal)">
+            <summary>
+            Consultar cronograma por proyecto
+            </summary>
+            <param name="Id">Id del proyecto</param>
+            <returns>Lista de cronograma</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.ActividadesObligatoriasByProyecto(System.Decimal)">
+            <summary>
+            Consultar actividades obligatorias por proyecto
+            </summary>
+            <param name="proId">Id del proyecto</param>
+            <returns>Lista de actividades obligatorias</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.ValoresInidcadorByProyecto(System.Decimal)">
+            <summary>
+            Consultar valores inidcador por proyecto
+            </summary>
+            <param name="proId">Id del proyecto</param>
+            <returns>Lista valores inidcadores</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.GetValoresIndicadorLineaCategoriaMunicipio(System.Decimal)">
+            <summary>
+            Consultar valores inidcador por categoria del municipio por proyecto
+            </summary>
+            <param name="proId">Id del proyecto</param>
+            <returns>Lista valores indicadores por categoria del municipio</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.FormulariosController.Seguimiento(MinCultura.Domain.Common.DTO.ConSeguimientosDto)">
+            <summary>
+            Método para actualizar la información del seguimiento
+            </summary>
+            <param name="seguimiento">Información de la actividad de seguimiento</param>
+            <returns>Respuesta Seguimiento actualizado o no</returns>
+        </member>
+        <member name="T:Concertacion.API.Controllers.LoginController">
+            <summary>
+            Controller encargado de realizar la autenticación del API
+            </summary>
+        </member>
+        <member name="M:Concertacion.API.Controllers.LoginController.Login(MinCultura.Domain.Common.DTO.UserLoginDto)">
+            <summary>
+            Método con las validaciones de autenticación
+            </summary>
+            <param name="login">Información del login</param>
+            <returns>Usuario</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.LoginController.Usuario(MinCultura.Domain.Common.DTO.CrearUsuarioDto)">
+            <summary>
+            Método para crear un usuario y asociarlo a una Entidad
+            </summary>
+            <param name="usuario">Información del usuario a crear</param>
+            <returns>Respuesta Usuario creado si cumple con los requisitos de la convocatoria</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.LoginController.ActualizarUsuario(MinCultura.Domain.Common.DTO.CuentaUsuarioDto)">
+            <summary>
+            Método para actualizar la información del usuario autenticado
+            </summary>
+            <param name="usuario">Información del usuario a actualizar</param>
+            <returns>Respuesta Usuario actualizado</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.LoginController.RecuperarClave(MinCultura.Domain.Common.DTO.ForgotDto)">
+            <summary>
+            Método para solocitar la recuperación de la clave de un usuario
+            </summary>
+            <param name="usuario">Información del usuario que desea recuperar la clave</param>
+            <returns>Respuesta positiva si logró realizar el proceso de recuperación del correo electrónico y false en caso contrario</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.LoginController.RecuperarClave(System.String)">
+            <summary>
+            Valida si el enlace envíado para cambiar la contraseña es valido y no ha caducado
+            </summary>
+            <param name="guid">Número único de identificación de la solicitud de cambio de clave</param>
+            <returns>True si es valido y habilita el frontend para el cambio</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.LoginController.ConfirmarUsuario(System.String)">
+            <summary>
+            Valida si el enlace envíado para confirmar el usuario es valido y realiza el proceso de activación del usuario
+            </summary>
+            <param name="guid">Número único de identificación de la solicitud de confirmación del usuario</param>
+            <returns>True si es valido y activa el usuario para permitir el ingreso</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.LoginController.CambiarClave(MinCultura.Domain.Common.DTO.ChangePasswordDto)">
+            <summary>
+            Cambiar la contraseña de un usuario
+            </summary>
+            <param name="data">Datos requeridos para el cambio de clave</param>
+            <returns>True si el proceso se realizó correctamente</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.LoginController.BuildToken(System.Security.Claims.Claim[],System.DateTime)">
+            <summary>
+            Construir calim token
+            </summary>
+            <param name="claims"></param>
+            <param name="expires"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Concertacion.API.Controllers.ParametriaController">
+            <summary>
+            Controller encargado administrar y gestionar listas del sistema y tablas paramétricas
+            </summary>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Departamentos">
+            <summary>
+            Consultar departamentos de Colombia
+            </summary>
+            <returns>Lista de departamentos</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Municipios(System.String)">
+            <summary>
+            Consultar municipios por departamento
+            </summary>
+            <returns>Listado de municipios</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Servicios">
+            <summary>
+            Consultar servicios por usuarios para la construcción del menu del sistema
+            </summary>
+            <returns>Listado de servicios configurados al usuario</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Vigencia">
+            <summary>
+            Consultar las vigencias configuradas en el sistema
+            </summary>
+            <returns>Listado de vigencias</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.TiposEntidad">
+            <summary>
+            Consultar los tipos de entidad configuradas en el sistema por la vigencia actual: $Current_year + 1
+            </summary>
+            <returns>Listado de tipos de entidad</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.InidcadoresByLinea(System.Decimal)">
+            <summary>
+            Consultar los indicadores por línes
+            </summary>
+            <returns>Listado de vigencias</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Indicadores">
+            <summary>
+            Consultar los indicadores
+            </summary>
+            <returns>Listado indicadores</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Lineas">
+            <summary>
+            Consultar las vigencias configuradas en el sistema
+            </summary>
+            <returns>Listado de vigencias</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Areas">
+            <summary>
+            Consultar las áreas configuradas en el sistema
+            </summary>
+            <returns>Listado de áreas</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.EntidadesFinancieras">
+            <summary>
+            Consultar entidades financieras
+            </summary>
+            <returns>Lista de entidades financieras</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.TemasbyLinea(System.Int32)">
+            <summary>
+            Consultar temas por línea
+            </summary>
+            <returns>Lista de temas por línea</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.ActividadesObligatorias">
+            <summary>
+            Consultar actividades obligatorias
+            </summary>
+            <returns>Lista de actividades obligatorias</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Trayectorias">
+            <summary>
+            Consulta la trayectoria de la vigencia activa
+            </summary>
+            <returns>Listado de preguntas</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Trayectorias(System.Int32)">
+            <summary>
+            Consulta la trayectoria de la vigencia activa por tipo
+            </summary>
+            <returns>Listado de preguntas</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.TipoTrayectorias">
+            <summary>
+            Consulta el tipo de trayectoria
+            </summary>
+            <returns>Listado de tipo de trayectoria</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.ConsultaTrayectoria(System.Decimal)">
+            <summary>
+            Consulta la trayectoria
+            </summary>
+            <returns>Listado de tipo de trayectoria</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.TipoPresupuesto">
+            <summary>
+            lista la parametrización de los tipos de presupuesto
+            </summary>
+            <returns>Parametrización tipo de titulos</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.ConsultaPresupuestoDetalleTipo">
+            <summary>
+            lista la parametrización del dedetalle de la parametrizacion
+            </summary>
+            <returns>dedetalle de la parametrizacion de presupuesto</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.ConsultaPresupuestoDetalle(System.Decimal)">
+            <summary>
+            lista el detalle del presupuesto
+            </summary>
+            <returns>dedetalle de la parametrizacion de presupuesto</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.GetAppIndicadorLineaCategoriaMunicipio">
+            <summary>
+            Consultar los indicadores por categoria del municipio
+            </summary>
+            <returns>Listado de indicadores por categorias del municipio</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.ConsultaDocumentos(System.Int32)">
+            <summary>
+            lista de los documentos a cargar
+            </summary>
+            <returns>documentos</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.CargarDocumento(Microsoft.AspNetCore.Http.IFormFile,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>
+            Salvar documento
+            </summary>
+            <returns>documentos</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.DescargarDocumento(System.Int32,System.String)">
+            <summary>
+            Descargar documento
+            </summary>
+            <returns>documentos</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Beneficiarios(System.Decimal)">
+            <summary>
+            Consultar Beneficiarios por Id
+            </summary>
+            <param name="id">Id del proyecto</param>
+            <returns>Beneficiario</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Resultado(System.Int32,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Consultar los proyectos inscritos es una convocatoria
+            </summary>
+            <param name="idVigencia">idVigencia</param>
+            <param name="depId">idVigencia</param>
+            <param name="munId">idVigencia</param>
+            <returns>proyectos</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Funcionarios(System.Int32)">
+            <summary>
+            Consultar Beneficiarios por Id
+            </summary>
+            <param name="id">Id del perfil</param>
+            <returns>Beneficiario</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.RequisitosByTipoEntidad(System.Int32)">
+            <summary>
+            Consultar requisitos por tipo de entidad
+            </summary>
+            <param name="id">Id del tipo de entidad</param>
+            <returns>Lista de requisitos</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Zonas">
+            <summary>
+            Consultar las zonas
+            </summary>
+            <returns>Lista de zonas</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Estados">
+            <summary>
+            Consultar los estados
+            </summary>
+            <returns>Lista de zonas</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.ParametriaController.Actividades">
+            <summary>
+            Consultar los estados
+            </summary>
+            <returns>Lista de zonas</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Concertacion.API.Controllers.ParametriaController.GetMimeType(System.String)" -->
+        <member name="T:Concertacion.API.Controllers.TrayectoriaProyectoController">
+            <summary>
+            Controller encargado de la trayectoria y el presupuesto
+            </summary>
+        </member>
+        <member name="M:Concertacion.API.Controllers.TrayectoriaProyectoController.TrayectoriaProyectos(System.Collections.Generic.List{MinCultura.Domain.Common.DTO.TrayectoriaProyectoDTO})">
+            <summary>
+            Método para insertar la trayectoria del proyecto 
+            </summary>
+            <returns>Respuesta trayectoria creada</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.TrayectoriaProyectoController.PresupuestoProyectos(System.Collections.Generic.List{MinCultura.Domain.Common.DTO.AppPresupuestoDetalleDto})">
+            <summary>
+            Método para insertar el presupuesto del proyecto 
+            </summary>
+            <returns>Respuesta presupuesto creado o no</returns>
+        </member>
+        <member name="M:Concertacion.API.Controllers.TrayectoriaProyectoController.Beneficiados(MinCultura.Domain.Common.DTO.AppBeneficiariosDto)">
+            <summary>
+            Método para actualizar la información de los beneficiario
+            </summary>
+            <param name="beneficiarios">Información de los beneficiarios</param>
+            <returns>Respuesta Proponente actualizado o no</returns>
+        </member>
+        <member name="T:SqlServerTypes.Utilities">
+            <summary>
+            Utility methods related to CLR Types for SQL Server 
+            </summary>
+        </member>
+        <member name="M:SqlServerTypes.Utilities.LoadNativeAssemblies(System.String)">
+            <summary>
+            Loads the required native assemblies for the current architecture (x86 or x64)
+            </summary>
+            <param name="rootApplicationPath">
+            Root path of the current application. Use Server.MapPath(".") for ASP.NET applications
+            and AppDomain.CurrentDomain.BaseDirectory for desktop applications.
+            </param>
+        </member>
+    </members>
+</doc>

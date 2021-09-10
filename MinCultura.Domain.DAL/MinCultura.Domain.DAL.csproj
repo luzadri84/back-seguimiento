@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\Concertacion.API\packages\Microsoft.EntityFrameworkCore.Design.3.1.10\build\net461\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('..\Concertacion.API\packages\Microsoft.EntityFrameworkCore.Design.3.1.10\build\net461\Microsoft.EntityFrameworkCore.Design.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A049E2C3-2031-47B1-A3DE-762F081C647B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MinCultura.Domain.DAL</RootNamespace>
+    <AssemblyName>MinCultura.Domain.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFrameworkCore.SqlServer.HierarchyId, Version=1.1.1.0, Culture=neutral, PublicKeyToken=0c30ba8633cb7b1e, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\EntityFrameworkCore.SqlServer.HierarchyId.1.1.1\lib\netstandard2.0\EntityFrameworkCore.SqlServer.HierarchyId.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFrameworkCore.SqlServer.HierarchyId.Abstractions, Version=1.1.1.0, Culture=neutral, PublicKeyToken=0c30ba8633cb7b1e, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\EntityFrameworkCore.SqlServer.HierarchyId.Abstractions.1.1.1\lib\net461\EntityFrameworkCore.SqlServer.HierarchyId.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Bcl.HashCode.1.1.0\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.SqlClient, Version=1.13.20136.2, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Data.SqlClient.1.1.3\lib\net46\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.EntityFrameworkCore.3.1.10\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.EntityFrameworkCore.Abstractions.3.1.10\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Design, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.EntityFrameworkCore.Design.3.1.10\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.EntityFrameworkCore.Relational.3.1.10\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.SqlServer, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.EntityFrameworkCore.SqlServer.3.1.10\lib\netstandard2.0\Microsoft.EntityFrameworkCore.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Extensions.Caching.Abstractions.3.1.10\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Extensions.Caching.Memory.3.1.10\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Extensions.Configuration.3.1.10\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.10\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Extensions.Configuration.Binder.3.1.10\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Extensions.DependencyInjection.3.1.10\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.10\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Extensions.Logging.3.1.10\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Extensions.Logging.Abstractions.3.1.10\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Extensions.Options.3.1.10\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.10.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Extensions.Primitives.3.1.10\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=3.0.8.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.Identity.Client.3.0.8\lib\net45\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.IdentityModel.JsonWebTokens.5.5.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.IdentityModel.Logging.5.5.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.IdentityModel.Protocols.5.5.0\lib\net461\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.5.5.0\lib\net461\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.IdentityModel.Tokens.5.5.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\System.Data.SqlClient.4.8.0\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\System.IdentityModel.Tokens.Jwt.5.5.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\Concertacion.API\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\AdjuntoCorreo.cs" />
+    <Compile Include="Models\AdmConfiguracion.cs" />
+    <Compile Include="Models\AdmPerfiles.cs" />
+    <Compile Include="Models\AdmPerfilesUsuarios.cs" />
+    <Compile Include="Models\AdmUsuarios.cs" />
+    <Compile Include="Models\AppActividadesObligatorias.cs" />
+    <Compile Include="Models\AppAreas.cs" />
+    <Compile Include="Models\AppBeneficiarios.cs" />
+    <Compile Include="Models\AppCausalesRechazo.cs" />
+    <Compile Include="Models\AppComponentes.cs" />
+    <Compile Include="Models\AppContratacion.cs" />
+    <Compile Include="Models\AppPresupuestoDetalleTipoTitulos.cs" />
+    <Compile Include="Models\AppProyectoActividadesObligatorias.cs" />
+    <Compile Include="Models\AppDetalleTiposEntidades.cs" />
+    <Compile Include="Models\AppDocumentosTipoEntidades.cs" />
+    <Compile Include="Models\AppEstadoContratacion.cs" />
+    <Compile Include="Models\AppEvaluacionRequisitos.cs" />
+    <Compile Include="Models\AppIndicadores.cs" />
+    <Compile Include="Models\AppIndicadoresLinea.cs" />
+    <Compile Include="Models\AppLineas.cs" />
+    <Compile Include="Models\AppPresupuestoDetalle.cs" />
+    <Compile Include="Models\AppPresupuestoDetalleTipo.cs" />
+    <Compile Include="Models\AppProponentes.cs" />
+    <Compile Include="Models\AppProyectos.cs" />
+    <Compile Include="Models\AppCronograma.cs" />
+    <Compile Include="Models\AppPuntajeProyecto.cs" />
+    <Compile Include="Models\AppRangos.cs" />
+    <Compile Include="Models\AppRegistroRechazados.cs" />
+    <Compile Include="Models\AppRequisitos.cs" />
+    <Compile Include="Models\AppTemas.cs" />
+    <Compile Include="Models\AppTemasProyectos.cs" />
+    <Compile Include="Models\AppTipoDocumentos.cs" />
+    <Compile Include="Models\AppTipoDocumentosValores.cs" />
+    <Compile Include="Models\AppTipoEntidadUsuario.cs" />
+    <Compile Include="Models\AppTipoProyectoProponente.cs" />
+    <Compile Include="Models\AppTiposEntidades.cs" />
+    <Compile Include="Models\AppTiposPuntaje.cs" />
+    <Compile Include="Models\AppUsuariosImpresion.cs" />
+    <Compile Include="Models\AppValoresIndicador.cs" />
+    <Compile Include="Models\AppValoresIndicadorLineaCategoriaMunicipio.cs" />
+    <Compile Include="Models\AppVariables.cs" />
+    <Compile Include="Models\AppVigencias.cs" />
+    <Compile Include="Models\AppIndicadorLineaCategoriaMunicipio.cs" />
+    <Compile Include="Models\BasDependencias.cs" />
+    <Compile Include="Models\BasEntidadesFinancieras.cs" />
+    <Compile Include="Models\BasTiposProyectos.cs" />
+    <Compile Include="Models\BasZonasGeograficas.cs" />
+    <Compile Include="Context\ConcertacionContext.cs" />
+    <Compile Include="Models\ConSeguimientos.cs" />
+    <Compile Include="Models\ConActividades.cs" />
+    <Compile Include="Models\ConZonas.cs" />
+    <Compile Include="Models\Cuentausuario.cs" />
+    <Compile Include="Models\Funcionario.cs" />
+    <Compile Include="Models\Logacciones.cs" />
+    <Compile Include="Models\Perfil.cs" />
+    <Compile Include="Models\PerfilesCuentausuario.cs" />
+    <Compile Include="Models\PlantillaCorreos.cs" />
+    <Compile Include="Models\PreguntaSeguridad.cs" />
+    <Compile Include="Models\PreguntaUsuario.cs" />
+    <Compile Include="Models\Servicio.cs" />
+    <Compile Include="Models\ServiciosPerfil.cs" />
+    <Compile Include="Models\Resultado.cs" />
+    <Compile Include="Models\TipoTrayectoria.cs" />
+    <Compile Include="Models\PresupuestoParametrizacionLineasTope.cs" />
+    <Compile Include="Models\ConEstados.cs" />
+    <Compile Include="Models\Trayectoria.cs" />
+    <Compile Include="Models\TrayectoriaProyecto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\ActividadesObligatoriasRepository.cs" />
+    <Compile Include="Repository\AppCronogramaRepository.cs" />
+    <Compile Include="Repository\AppDetalleTipoEntidadRepository.cs" />
+    <Compile Include="Repository\AppDocumentosTipoEntidadesRepository.cs" />
+    <Compile Include="Repository\AppPresupuestoDetalleRepository.cs" />
+    <Compile Include="Repository\AppPresupuestoDetalleTipoRepository.cs" />
+    <Compile Include="Repository\AppPresupuestoDetalleTipoTitulosRepository.cs" />
+    <Compile Include="Repository\AppTemasProyectosRepository.cs" />
+    <Compile Include="Repository\AreasRepository.cs" />
+    <Compile Include="Repository\Base\BaseRepository.cs" />
+    <Compile Include="Repository\ComponentesRepository.cs" />
+    <Compile Include="Repository\ConSeguimientosRepository.cs" />
+    <Compile Include="Repository\ConZonasRepository.cs" />
+    <Compile Include="Repository\EvaluacionRequisitosRepository.cs" />
+    <Compile Include="Repository\IndicadorLineaCategoriaMunicipioRepository.cs" />
+    <Compile Include="Repository\Interface\IAppDetallesTipoEntidadesRepository.cs" />
+    <Compile Include="Repository\Interface\IAppIndicadoresLineaRepository.cs" />
+    <Compile Include="Repository\Interface\IAppIndicadoresRepository.cs" />
+    <Compile Include="Repository\Interface\IAppTipoDocumentosValoresRepository.cs" />
+    <Compile Include="Repository\Interface\IEvaluacionRequisitosRepository.cs" />
+    <Compile Include="Repository\Interface\IIndicadorLineaCategoriaMunicipioRepository.cs" />
+    <Compile Include="Repository\Interface\IResultadoRepository.cs" />
+    <Compile Include="Repository\Interface\ITrayectoriaProyectoRepository.cs" />
+    <Compile Include="Repository\Interface\IValoresIndicadorLineaCategoriaMunicipioRepository.cs" />
+    <Compile Include="Repository\Interface\IValoresIndicadorRepository.cs" />
+    <Compile Include="Repository\Interface\IRequisitosRepository.cs" />
+    <Compile Include="Repository\Interface\IResultadoRepository.cs" />
+    <Compile Include="Repository\Interface\IZonasGeograficasRepository.cs" />
+    <Compile Include="Repository\ProyectoActividadesObligatoriasRepository.cs" />
+    <Compile Include="Repository\CuentausuarioRepository.cs" />
+    <Compile Include="Repository\IndicadoresLineaRepository.cs" />
+    <Compile Include="Repository\IndicadoresRepository.cs" />
+    <Compile Include="Repository\Interface\IActividadesObligatoriasRepository.cs" />
+    <Compile Include="Repository\Interface\IAppComponentesRepository.cs" />
+    <Compile Include="Repository\Interface\IProyectoActividadesObligatoriasRepository.cs" />
+    <Compile Include="Repository\Interface\IAppCronogramaRepository.cs" />
+    <Compile Include="Repository\Interface\IAppTemasProyectosRepository.cs" />
+    <Compile Include="Repository\Interface\IRepository.cs" />
+    <Compile Include="Repository\LineasRepository.cs" />
+    <Compile Include="Repository\RequisitosRepository.cs" />
+    <Compile Include="Repository\TemasRepository.cs" />
+    <Compile Include="Repository\AppTipoDocumentosRepository.cs" />
+    <Compile Include="Repository\AppBeneficiariosRepository.cs" />
+    <Compile Include="Repository\TipoTrayectoriaRepository.cs" />
+    <Compile Include="Repository\AppTipoDocumentosValoresRepository.cs" />
+    <Compile Include="Repository\TrayectoriaProyectoRepository.cs" />
+    <Compile Include="Repository\PresupuestoParametrizacionLineasTopeRepository.cs" />
+    <Compile Include="Repository\ResultadoRepository.cs" />
+    <Compile Include="Repository\FuncionarioRepository.cs" />
+    <Compile Include="Repository\ConEstadosRepository.cs" />
+    <Compile Include="Repository\ConActividadesRepository.cs" />
+    <Compile Include="Repository\TrayectoriaRepository.cs" />
+    <Compile Include="Repository\ValoresIndicadorLineaCategoriaMunicipioRepository.cs" />
+    <Compile Include="Repository\ValoresIndicadorRepository.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Repository\ZonasGeograficasRepository.cs" />
+    <Compile Include="Repository\Interface\ICuentausuarioRepository.cs" />
+    <Compile Include="Repository\Interface\IServicioRepository.cs" />
+    <Compile Include="Repository\ServicioRepository.cs" />
+    <Compile Include="Repository\PerfilRepository.cs" />
+    <Compile Include="Repository\AppTiposEntidadesRepository.cs" />
+    <Compile Include="Repository\AppVigenciasRepository.cs" />
+    <Compile Include="Repository\AppTipoProyectoProponenteRepository.cs" />
+    <Compile Include="Repository\AppProponentesRepository.cs" />
+    <Compile Include="Repository\Interface\IAppProponentesRepository.cs" />
+    <Compile Include="Repository\PerfilesCuentausuarioRepository.cs" />
+    <Compile Include="Repository\AppProyectosRepository.cs" />
+    <Compile Include="Repository\Interface\IAppProyectosRepository.cs" />
+    <Compile Include="Repository\BasEntidadesFinancierasRepository.cs" />
+    <Compile Include="Repository\PlantillaCorreosRepository.cs" />
+    <Compile Include="Models\EnvioCorreos.cs" />
+    <Compile Include="Repository\EnvioCorreosRepository.cs" />
+    <Compile Include="Models\AppRadicadoProyectos.cs" />
+    <Compile Include="Repository\Interface\IAppRadicadoProyectosRepository.cs" />
+    <Compile Include="Repository\AppRadicadoProyectosRepository.cs" />
+    <Compile Include="Repository\Interface\IAppPresupuestoDetalleRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MinCultura.Domain.Common\MinCultura.Domain.Common.csproj">
+      <Project>{3de3d19f-7ed9-4757-a76b-30d0691400cf}</Project>
+      <Name>MinCultura.Domain.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\Concertacion.API\packages\Microsoft.EntityFrameworkCore.Design.3.1.10\build\net461\Microsoft.EntityFrameworkCore.Design.props')" Text="$([System.String]::Format('$(ErrorText)', '..\Concertacion.API\packages\Microsoft.EntityFrameworkCore.Design.3.1.10\build\net461\Microsoft.EntityFrameworkCore.Design.props'))" />
+    <Error Condition="!Exists('..\Concertacion.API\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\Concertacion.API\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets'))" />
+    <Error Condition="!Exists('..\Concertacion.API\packages\EntityFrameworkCore.SqlServer.HierarchyId.1.1.1\build\netstandard2.0\EntityFrameworkCore.SqlServer.HierarchyId.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\Concertacion.API\packages\EntityFrameworkCore.SqlServer.HierarchyId.1.1.1\build\netstandard2.0\EntityFrameworkCore.SqlServer.HierarchyId.targets'))" />
+  </Target>
+  <Import Project="..\Concertacion.API\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\Concertacion.API\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
+  <Import Project="..\Concertacion.API\packages\EntityFrameworkCore.SqlServer.HierarchyId.1.1.1\build\netstandard2.0\EntityFrameworkCore.SqlServer.HierarchyId.targets" Condition="Exists('..\Concertacion.API\packages\EntityFrameworkCore.SqlServer.HierarchyId.1.1.1\build\netstandard2.0\EntityFrameworkCore.SqlServer.HierarchyId.targets')" />
+</Project>
